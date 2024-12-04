@@ -81,7 +81,7 @@
                                             </span>
                                         </p>
                                     </div>
-                                    <!-- Preserve the offer ribbon for Veggie Pizza -->
+                                    <!--  Offer Ribbon if they have an offer -->
                                     <img v-if="pizza.offerRibbon" :src="pizza.offerRibbon" alt="Offer"
                                         class="position-absolute top-0 end-0" style="width: 110px; z-index: 10;">
                                 </div>
@@ -175,7 +175,7 @@
         <div v-if="orderSuccessModal" class="modal-overlay">
             <div class="modal-container">
                 <div class="modal-content text-center">
-                    <img src="https://cdn-icons-png.flaticon.com/512/1364/1364162.png" alt="Sucess" width="120">
+                    <img src="assets/icon/check-list.gif" alt="Check list" class="ms-3" width="120">
                     <div class="my-3">
                         <h4>Order Success!</h4>
                         <p>Thank you, we have received your order succesfully</p>
@@ -190,7 +190,7 @@
                 <div class="row">
                     <div class="col-12 d-flex flex-wrap justify-content-between my-3">
                         <!-- Find us -->
-                        <div class="footer-list-sm col-lg-3 me-3">
+                        <div class="footer-list-sm col-lg-2 me-3">
                             <img src="assets/logo/logo-alt.svg" alt="">
                             <h5 class="text-orange fw-bold mt-4">Find Us :</h5>
                             <div class="d-flex align-items-center my-2">
@@ -200,7 +200,7 @@
                             </div>
                         </div>
                         <!-- navigation -->
-                        <div class="footer-list-sm col-lg-3 me-3">
+                        <div class="footer-list-sm col-lg-2 me-3">
                             <h5 class="fw-bold text-orange">Navigation</h5>
                             <div class="d-flex">
                                 <ul class="list-link list-unstyled me-5" type="none">
@@ -231,7 +231,7 @@
                             </div>
                         </div>
                         <!-- Contact -->
-                        <div class="footer-list-sm col-lg-3 me-3">
+                        <div class="footer-list-sm col-lg-2 me-3">
                             <h5 class="fw-bold text-orange">Contact</h5>
                             <div class="d-flex justify-content-between">
                                 <ul class="list-unstyled me-5" type="none">
@@ -251,7 +251,7 @@
                             </div>
                         </div>
                         <!-- Location -->
-                        <div class="footer-list-sm col-lg-2 me-3">
+                        <div class="footer-list-sm col-lg-3 me-3">
                             <h5 class="fw-bold text-orange">Contact</h5>
                             <div class="d-flex justify-content-between">
                                 <ul class="list-unstyled me-5" type="none">
