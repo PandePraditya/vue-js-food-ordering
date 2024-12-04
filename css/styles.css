@@ -1,0 +1,192 @@
+/* :root {
+    --base-color: #db8031;
+}
+
+.btn.btn-pizza {
+    --bs-btn-font-weight: 400;
+    --bs-btn-color: #404040;
+    --bs-btn-bg: var(--base-white);
+    --bs-btn-border-color: #C2C2C2;
+    --bs-btn-border-radius: 0.5rem;
+    --bs-btn-hover-bg: var(--base-color);
+    --bs-btn-hover-border-color: var(--base-color);
+    --bs-btn-focus-shadow-rgb: var(--base-color);
+    --bs-btn-active-color: var(--bs-white);
+    --bs-btn-active-bg: var(--base-color);
+    --bs-btn-active-border-color: var(--base-color);
+    transition: all 0.2s ease-in-out;
+} */
+
+:root {
+    --base-color: #f8d8bc;
+    --alt-color: #db8031;
+}
+
+/* Toppings Animation */
+.btn.btn-category {
+    --bs-btn-font-weight: 400;
+    --bs-btn-color: #404040;
+    --bs-btn-bg: var(--base-white);
+    --bs-btn-border-color: #C2C2C2;
+    --bs-btn-border-radius: 0.5rem;
+    --bs-btn-hover-color: var(--bs-white);
+    --bs-btn-hover-bg: var(--base-color);
+    --bs-btn-hover-border-color: var(--base-color);
+    --bs-btn-focus-shadow-rgb: var(--base-color);
+    --bs-btn-active-color: var(--alt-color);
+    --bs-btn-active-bg: var(--base-color);
+    --bs-btn-active-border-color: var(--alt-color);
+    font-weight: 600;
+    transition: all 0.2s ease-in-out;
+    width: 130px;
+}
+
+header {
+    background: url('../assets/logo/hero.png') no-repeat center center;
+    background-size: cover;
+    height: 90vh;
+}
+
+/* navbar */
+.navbar-space-between {
+    display: flex !important;
+    justify-content: space-between !important;
+}
+
+.nav-link-menu li a:hover {
+    color: #db8031 !important;
+}
+
+.text-orange {
+    color: #db8031;
+}
+
+.btn-orange {
+    padding: 8px 20px;
+    background-color: #db8031;
+    border-color: #db8031;
+    color: #fff;
+}
+
+.btn-orange:hover {
+    background-color: transparent;
+    border: 2px solid #db8031;
+    color: #db8031;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+/* Pizza */
+.btn-pizza {
+    transition: transform 0.3s ease;
+}
+
+.btn-pizza:hover {
+    background-color: #eaa05f !important;
+    transition: all 0.2s ease-in-out;
+}
+
+.btn-pizza img:nth-child(1) {
+    transition: transform 0.3s ease;
+}
+
+.btn-pizza:hover img:nth-child(1) {
+    transform: rotate(25deg);
+}
+
+.summary li {
+    display: flex;
+    justify-content: space-between;
+}
+
+.selected-pizza {
+    background-color: #db8031 !important;
+    color: white;
+}
+
+.selected-pizza h5 {
+    color: white;
+}
+
+.selected-pizza p {
+    color: white;
+}
+
+.selected-pizza img:nth-child(1) {
+    transform: rotate(25deg);
+}
+
+/* Toppings */
+.disabled-grey {
+    background-color: #f0f0f0 !important;
+    border: 1px solid #f0f0f0 !important;
+    color: #343434 !important;
+    cursor: not-allowed  !important;
+}
+
+/* Icon */
+.border-icon {
+    cursor: pointer;
+    border: 1px solid #db8031;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    padding: 7px 12px;
+}
+
+.border-icon:hover {
+    background-color: #ecaf7a;
+    transition: all 0.2s ease-in-out;
+}
+
+/* Footer list */
+.list-link li {
+    margin: 10px 0px;
+    cursor: pointer;
+}
+
+.list-link li a {
+    color: #343434;
+    text-decoration: none;
+}
+
+.list-link li a:hover {
+    color: #db8031;
+}
+
+@media screen and (max-width: 769px) {
+    /* Custom Toppings */
+    .w-md-100 {
+        width: 100% !important;
+    }
+}
+
+/* Phone Screen */
+@media screen and (max-width: 426px) {
+    .btn.btn-category {
+        width: 100px !important;
+    }
+
+    .nav-link-menu {
+        margin: 30px 0px !important;
+    }
+
+    /* hero */
+    .hero-title-sm {
+        position: absolute;
+        transform: translate(15%, 15%) !important;
+        font-size: 10px;
+    }
+
+    /* summary */
+    .summary-card {
+        width: 100% !important;
+    }
+
+    /* Footer */
+    .footer-list-sm {
+        margin: 20px 0px !important;
+    }
+}
