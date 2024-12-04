@@ -3,6 +3,8 @@ const app = new Vue({
     data: {
         selectedPizzaIndex: null,
         selectedToppings: [],
+        selectedSize: null,
+        orderSuccessModal: false,
         pizzas: [
             {
                 id: 1,
@@ -76,6 +78,8 @@ const app = new Vue({
             this.selectedPizzaIndex = index;
             // Reset selected toppings when a new pizza is selected
             this.selectedToppings = [];
+            // Reset the size
+            this.selectedSize = null;
         },
         isToppingAllowed(toppingId) {
             // If no pizza is selected, return false
@@ -96,6 +100,54 @@ const app = new Vue({
                     this.selectedToppings.push(toppingId);
                 }
             }
-        }
+        },
+        orderNow() {
+            // Validate order
+            if (this.selectedPizzaIndex === null) {
+                alert('Please select a pizza first');
+                return;
+            }
+
+            if (!this.selectedSize) {
+                alert('Please select a pizza size');
+                return;
+            }
+
+            // Show success modal
+            this.orderSuccessModal = true;
+
+            // Reset order
+            this.selectedPizzaIndex = null;
+            this.selectedToppings = [];
+            this.selectedSize = null;
+        },
+        closeModal() {
+            this.orderSuccessModal = false;
+        },
+    },
+    computed: {
+        totalPrice() {
+            let total = 0;
+    
+            // Add the price of the selected pizza
+            if (this.selectedPizzaIndex !== null) {
+                const selectedPizza = this.pizzas[this.selectedPizzaIndex];
+                total += selectedPizza.discount.is_active ? selectedPizza.discount.final_price : selectedPizza.price;
+            }
+    
+            // Add the extra price for the selected size
+            if (this.selectedSize) {
+                const size = this.sizes.find(size => size.id === this.selectedSize);
+                total += size ? size.extra_price : 0;
+            }
+    
+            // Add the price of the selected toppings
+            this.selectedToppings.forEach(toppingId => {
+                const topping = this.toppings.find(t => t.id === toppingId);
+                total += topping ? topping.price : 0;
+            });
+    
+            return total.toFixed(2); // Return total price formatted to two decimal places
+        },
     }
 });
