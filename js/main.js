@@ -79,7 +79,7 @@ const app = new Vue({
             // Reset selected toppings when a new pizza is selected
             this.selectedToppings = [];
             // Reset the size
-            this.selectedSize = null;
+            this.selectedSize = 1;
         },
         isToppingAllowed(toppingId) {
             // If no pizza is selected, return false
