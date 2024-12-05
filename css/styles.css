@@ -119,6 +119,44 @@ header {
     transform: rotate(25deg);
 }
 
+/* Radio Size */
+/* Hide the original radio button */
+.custom-radio-label input[type="radio"] {
+    display: none;
+}
+
+/* Custom radio button */
+.custom-radio {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #db8031; /* Border color */
+    border-radius: 50%;
+    position: relative;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+/* Checked state: Add a filled dot */
+.custom-radio-label input[type="radio"]:checked + .custom-radio {
+    background-color: white; /* Fill color for selected radio button */
+    border-color: #b36628; 
+}
+
+/* Add the inner dot for the checked radio */
+.custom-radio-label input[type="radio"]:checked + .custom-radio::after {
+    content: ""; /* Empty content */ 
+    display: block;
+    width: 10px;
+    height: 10px;
+    background-color: #db8031; /* Inner dot color */
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
 /* Toppings */
 .disabled-grey {
     background-color: #f0f0f0 !important;

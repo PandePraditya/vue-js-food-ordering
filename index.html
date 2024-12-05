@@ -62,6 +62,7 @@
                     <div class="col-12 d-flex flex-wrap">
                         <!-- Pizza menu -->
                         <div class="col-lg-9 col-md-7">
+                            <!-- Pizza Select -->
                             <div class="d-flex flex-wrap">
                                 <div v-for="(pizza, index) in pizzas" :key="index" @click="selectPizza(index)"
                                     class="btn btn-pizza d-flex align-items-center cursor-pointer border p-4 my-3 me-2 rounded-4 position-relative"
@@ -84,6 +85,41 @@
                                     <!--  Offer Ribbon if they have an offer -->
                                     <img v-if="pizza.offerRibbon" :src="pizza.offerRibbon" alt="Offer"
                                         class="position-absolute top-0 end-0" style="width: 110px; z-index: 10;">
+                                </div>
+                            </div>
+                            <!-- Custom Pizza -->
+                            <div class="custom-pizza-sm my-3">
+                                <h2 class="fw-bold" style="color: #db8031;">Custom Pizza</h2>
+                                <!-- Size -->
+                                <div class="my-4">
+                                    <h5 class="fw-bold">Size</h5>
+                                    <div class="my-3 d-flex align-items-center">
+                                        <label v-for="size in sizes" :key="size.id" class="custom-radio-label d-flex align-items-center cursor-pointer me-3">
+                                            <input type="radio" :name="'size'" :id="'options' + size.id" :value="size.id" v-model="selectedSize">
+                                            <span class="custom-radio me-1"></span>
+                                            {{ size.name }}
+                                            <span v-if="size.extra_price > 0" class="text-secondary">(+{{ size.extra_price
+                                                }}$)</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <!-- Toppings -->
+                                <div class="my-3">
+                                    <h5 class="fw-bold">Toppings</h5>
+                                    <div class="d-flex flex-wrap my-3">
+                                        <div v-for="topping in toppings" :key="topping.id" class="m-2">
+                                            <input type="checkbox" class="btn-check"
+                                                :id="'btn-check-' + topping.id + '-outlined'" 
+                                                :value="topping.id"
+                                                v-model="selectedToppings" 
+                                                :disabled="!isToppingAllowed(topping.id)">
+                                            <label class="btn btn-category rounded-pill"
+                                                :class="{ 'disabled-grey': !isToppingAllowed(topping.id) }"
+                                                :for="'btn-check-' + topping.id + '-outlined'">
+                                                {{ topping.name }}
+                                            </label>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -135,38 +171,7 @@
 
                 <!-- Custom Pizza -->
                 <div class="row my-3">
-                    <div class="col-12 custom-pizza-sm">
-                        <h2 class="fw-bold" style="color: #db8031;">Custom Pizza</h2>
-                        <!-- Size -->
-                        <div class="my-3 col-lg-12">
-                            <h5 class="fw-bold">Size</h5>
-                            <div class="my-3 d-flex align-items-center">
-                                <label v-for="size in sizes" :key="size.id" class="me-3">
-                                    <input type="radio" :name="'size'" :id="'options' + size.id" :value="size.id"
-                                        v-model="selectedSize">
-                                    {{ size.name }}
-                                    <span v-if="size.extra_price > 0" class="text-secondary">(+{{ size.extra_price
-                                        }}$)</span>
-                                </label>
-                            </div>
-                        </div>
-                        <!-- Toppings -->
-                        <div class="my-3 col-lg-12 col-sm-12">
-                            <h5 class="fw-bold">Toppings</h5>
-                            <div class="d-flex flex-wrap my-3 w-75">
-                                <div v-for="topping in toppings" :key="topping.id" class="pe-3 mb-3">
-                                    <input type="checkbox" class="btn-check"
-                                        :id="'btn-check-' + topping.id + '-outlined'" :value="topping.id"
-                                        v-model="selectedToppings" :disabled="!isToppingAllowed(topping.id)">
-                                    <label class="btn btn-category rounded-pill"
-                                        :class="{ 'disabled-grey': !isToppingAllowed(topping.id) }"
-                                        :for="'btn-check-' + topping.id + '-outlined'">
-                                        {{ topping.name }}
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
         </main>

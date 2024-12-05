@@ -128,25 +128,38 @@ const app = new Vue({
     computed: {
         totalPrice() {
             let total = 0;
-    
+
             // Add the price of the selected pizza
             if (this.selectedPizzaIndex !== null) {
                 const selectedPizza = this.pizzas[this.selectedPizzaIndex];
-                total += selectedPizza.discount.is_active ? selectedPizza.discount.final_price : selectedPizza.price;
+                if (selectedPizza.discount.is_active) {
+                    total += selectedPizza.discount.final_price;
+                } else {
+                    total += selectedPizza.price;
+                }
             }
-    
+
             // Add the extra price for the selected size
             if (this.selectedSize) {
                 const size = this.sizes.find(size => size.id === this.selectedSize);
-                total += size ? size.extra_price : 0;
+                if (size) {
+                    total += size.extra_price;
+                } else {
+                    total += 0;
+                }
             }
-    
+
             // Add the price of the selected toppings
             this.selectedToppings.forEach(toppingId => {
                 const topping = this.toppings.find(t => t.id === toppingId);
-                total += topping ? topping.price : 0;
+                if (topping) {
+                    total += topping.price;
+                } else {
+                    total += 0;
+                }
             });
-    
+
+
             return total.toFixed(2); // Return total price formatted to two decimal places
         },
     }
