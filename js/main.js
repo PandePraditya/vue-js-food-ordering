@@ -41,7 +41,7 @@ const app = new Vue({
                 image: 'assets/img/Classical Pizza.png'
             }
         ],
-        toppings: [
+        pizzaToppings: [
             { id: 1, name: "Avocado", price: 1 },
             { id: 2, name: "Broccoli", price: 1 },
             { id: 3, name: "Onions", price: 1 },
@@ -151,7 +151,7 @@ const app = new Vue({
 
             // Add the price of the selected toppings
             this.selectedToppings.forEach(toppingId => {
-                const topping = this.toppings.find(t => t.id === toppingId);
+                const topping = this.pizzaToppings.find(t => t.id === toppingId);
                 if (topping) {
                     total += topping.price;
                 } else {

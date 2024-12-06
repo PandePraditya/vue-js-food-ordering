@@ -107,7 +107,7 @@
                                 <div class="my-3">
                                     <h5 class="fw-bold">Toppings</h5>
                                     <div class="d-flex flex-wrap my-3">
-                                        <div v-for="topping in toppings" :key="topping.id" class="m-2">
+                                        <div v-for="topping in pizzaToppings" :key="topping.id" class="m-2">
                                             <input type="checkbox" class="btn-check"
                                                 :id="'btn-check-' + topping.id + '-outlined'" 
                                                 :value="topping.id"
@@ -149,11 +149,12 @@
 
                                         <!-- Selected Toppings -->
                                         <li v-for="toppingId in selectedToppings" :key="toppingId">
-                                            <p>{{ toppings.find(t => t.id === toppingId).name }}</p>
-                                            <p>${{ toppings.find(t => t.id === toppingId).price.toFixed(2) }}</p>
+                                            <p>{{ pizzaToppings.find(t => t.id === toppingId).name }}</p>
+                                            <p>${{ pizzaToppings.find(t => t.id === toppingId).price.toFixed(2) }}</p>
                                         </li>
                                     </ul>
                                 </div>
+                                <!--  -->
                                 <div v-else class="py-3 border-bottom text-center text-muted">
                                     No pizza selected
                                 </div>

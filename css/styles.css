@@ -133,13 +133,12 @@ header {
     border: 2px solid #db8031; /* Border color */
     border-radius: 50%;
     position: relative;
-    transition: background-color 0.3s, border-color 0.3s;
 }
 
 /* Checked state: Add a filled dot */
 .custom-radio-label input[type="radio"]:checked + .custom-radio {
     background-color: white; /* Fill color for selected radio button */
-    border-color: #b36628; 
+    border-color: #db8031; 
 }
 
 /* Add the inner dot for the checked radio */
